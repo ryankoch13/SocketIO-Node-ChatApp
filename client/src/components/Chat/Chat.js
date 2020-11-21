@@ -49,6 +49,11 @@ const Chat = ({ location }) => {
         socket.on('roomData', ({ users })=> {
             setUsers(users)
         })
+
+        socket.on('allRooms', ({ rooms })=> {
+            setRooms(rooms)
+            console.log(rooms)
+        })
     }, [])
 
 
@@ -79,6 +84,7 @@ const Chat = ({ location }) => {
             </div>
             <TextContainer 
             users={ users }
+            rooms={ rooms }
             />
         </div>
     )

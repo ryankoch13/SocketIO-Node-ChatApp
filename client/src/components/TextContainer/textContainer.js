@@ -3,9 +3,9 @@ import React from 'react'
 import './TextContainer.css'
 import onlineIcon from './../../icons/onlineIcon.png'
 
-const TextContainer = ({ users }) => (
+const TextContainer = ({ users, rooms }) => (
     <div className="textContainer">
-        <div>
+        <div className="headerText">
             <h1>RyanChat</h1>
             <h2>Real-Time Chat App</h2>
             <h2>Built with React, Express, Node, and Socket.io</h2>
@@ -22,6 +22,25 @@ const TextContainer = ({ users }) => (
                             className="activeItem">
                                 { name }
                                 <img alt="Online icon" src={ onlineIcon } />
+                            </div>
+                        ))}
+                    </h2>
+                    </div>
+            </div>
+        )
+        : null
+    }
+    { 
+        rooms
+        ? (
+            <div>
+                <h1>Rooms with Active Users:</h1>
+                <div className="activeContainer">
+                    <h2>
+                        { rooms.map((room) => (
+                            <div key={ room }
+                            className="activeItem">
+                                { room }
                             </div>
                         ))}
                     </h2>

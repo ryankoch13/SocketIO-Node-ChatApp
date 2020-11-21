@@ -7,14 +7,17 @@ h1 {
     flex-direction: column;
     margin-left: 100px;
     color: white;
-    height: 60%;
     justify-content: space-between;
+  }
+  
+  .headerText {
+    margin-bottom: 100px;
   }
   
   .activeContainer {
     display: flex;
     align-items: center;
-    margin-bottom: 50%;
+    margin-bottom: 100px;
   }
   
   .activeItem {

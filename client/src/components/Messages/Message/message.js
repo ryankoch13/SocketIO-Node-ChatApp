@@ -1,10 +1,11 @@
 import React from 'react'
 import ScrollToBottom from 'react-scroll-to-bottom'
 import ReactEmoji from 'react-emoji'
+import DayJS from 'react-dayjs'
 
 import './Message.css'
 
-const Message = ({ message: { user, text }, name }) => {
+const Message = ({ message: { user, text, time }, name }) => {
     let isSentByCurrentUser = false
 
     const trimmedName = name.trim().toLowerCase()
@@ -17,18 +18,20 @@ const Message = ({ message: { user, text }, name }) => {
         isSentByCurrentUser
         ? (
             <div className="messageContainer sentByUser">
-                <p className="sentText">{ trimmedName }</p>
+                <p className="sentTime"><DayJS format="HH:mm">{ time }</DayJS></p>
                 <div className="messageBox backgroundBlue">
-                    <p className="messageText colorWhite">{ ReactEmoji.emojify(text) }</p>
+        <p className="messageText colorWhite">{ ReactEmoji.emojify(text) }</p>
                 </div>
+                <p className="sentText">{ trimmedName }</p>
             </div>
         )
         : (
             <div className="messageContainer sentByOther">
+                <p className="sentText sentByOther">{ user }</p>
                 <div className="messageBox sentByOther">
                     <p className="messageText sentByOther">{ ReactEmoji.emojify(text) }</p>
                 </div>
-                <p className="sentText sentByOther">{ user }</p>
+                <p className="sentTime"><DayJS format="HH:mm">{ time }</DayJS></p>
             </div>
         )
     )
