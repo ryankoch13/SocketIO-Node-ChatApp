@@ -7,6 +7,8 @@ import InfoBar from '../InfoBar/infoBar'
 import Input from '../Input/input'
 import Messages from '../Messages/messages'
 import TextContainer from '../TextContainer/textContainer'
+import ActiveRooms from '../activeRooms/activeRooms'
+
 
 let socket;
 
@@ -35,8 +37,6 @@ const Chat = ({ location }) => {
         }, [ENDPOINT, location.search])
 
         return () => {
-            socket.emit('disconnect')
-
             socket.off()
         }
     }, [ENDPOINT, location.search])
@@ -68,6 +68,13 @@ const Chat = ({ location }) => {
 
     return (
         <div className="outerContainer">
+            <ActiveRooms
+            name={ name }
+            rooms={ rooms }
+            setMessages={ setMessages }
+            >
+
+            </ActiveRooms>
             <div className="container">
                 <InfoBar 
                 room={ room }
@@ -84,7 +91,6 @@ const Chat = ({ location }) => {
             </div>
             <TextContainer 
             users={ users }
-            rooms={ rooms }
             />
         </div>
     )

@@ -30,7 +30,7 @@ const TextContainer = ({ users, rooms }) => (
         )
         : null
     }
-    { 
+    {/* { 
         rooms
         ? (
             <div>
@@ -48,7 +48,7 @@ const TextContainer = ({ users, rooms }) => (
             </div>
         )
         : null
-    }
+    } */}
     </div>
 )
 
