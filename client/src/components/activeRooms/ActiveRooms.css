@@ -4,25 +4,25 @@ color: goldenrod;
 
 .textContainer {
     display: flex;
-    flex-direction: column;
-    margin-left: 100px;
+    margin-right: 100px;
     color: white;
-    justify-content: space-between;
 }
 
 .headerText {
     margin-bottom: 100px;
 }
 
-.activeContainer {
+.roomContainer {
     display: flex;
     align-items: center;
     margin-bottom: 100px;
+    justify-content: flex-end;
 }
 
 .activeItem {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .activeContainer img {
@@ -39,16 +39,22 @@ color: goldenrod;
     }
 }
 
-    .button {
+.join-button {
         color: #fff !important;
         text-transform: uppercase;
         text-decoration: none;
-        background-color: darkorange;
-        padding: 20px;
-        border-radius: 5px;
+        background-color: coral;
+        padding: 15px;
+        margin-left: 25px;
+        margin-right: 25px;
+        border-radius: 10px;
         display: inline-block;
         border: none;
         width: 100%;
         font-size: 16px;
         font-weight: 600;
+        transition-duration: 0.5s;
     }
+.button:hover {
+    background-color: darkgoldenrod;
+}

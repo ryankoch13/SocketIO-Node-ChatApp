@@ -10,7 +10,7 @@ const ActiveRooms = ({ name, rooms, setMessages }) => (
         ? (
             <div>
                 <h1>Rooms with Active Users:</h1>
-                <div className="activeContainer">
+                <div className="roomContainer">
                     <h2>
                         { rooms.map((room) => (
                             <div key={ room }
@@ -21,7 +21,7 @@ const ActiveRooms = ({ name, rooms, setMessages }) => (
                                     to={`./chat?name=${name}&room=${room}`}
                                     >
                                     <button
-                                    className="button mt-20" type="submit"
+                                    className="join-button" type="submit"
                                     >Join</button>
                                     </Link>
                             </div>
