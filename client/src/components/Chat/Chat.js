@@ -26,22 +26,27 @@ const Chat = ({ location }) => {
 
         socket = io(ENDPOINT)
 
+        // Sets the state variables to the room and name passed through URL
         setRoom(room)
         setName(name)
         console.log(socket)
 
+        // Sends join event to server
         socket.emit('join', { name, room }, (error) => {
             if(error) {
                 alert(error)
             }
         }, [ENDPOINT, location.search])
 
+        // Upon un-mount, sends disconnect event to server and turns socket off. 
         return () => {
+            socket.disconnect()
             socket.off()
         }
     }, [ENDPOINT, location.search])
 
     useEffect(() => {
+        // Listening for messages, room counts and active rooms
         socket.on('message', (message)=> {
             setMessages(messages => [...messages, message])
         })
@@ -54,7 +59,12 @@ const Chat = ({ location }) => {
             setRooms(rooms)
             console.log(rooms)
         })
-    }, [])
+
+        return () => {
+            // turns off socket upon un-mount
+            socket.off()
+        }
+    },[room])
 
 
     // function for sending messages
@@ -71,7 +81,7 @@ const Chat = ({ location }) => {
             <ActiveRooms
             name={ name }
             rooms={ rooms }
-            setMessages={ setMessages }
+            setRoom={ setRoom }
             >
 
             </ActiveRooms>

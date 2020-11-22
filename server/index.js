@@ -2,9 +2,9 @@ const http = require('http')
 const express = require('express')
 const socketio = require('socket.io')
 const cors = require('cors')
-const dayjs = require('dayjs')
 
 const { addUser, removeUser, getUser, getUsersInRoom, getRoomsWithUsers } = require('./users.js')
+
 
 const PORT = process.env.PORT || 5000
 
@@ -28,7 +28,7 @@ io.on('connection', socket => {
         
         socket.emit('message', { user: 'admin', text: `${user.name}, welcome to the ${user.room} room`, time: Date.now() })
         socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!`, time: Date.now() })
-
+        console.log(`user has joined ${user.room}`)
 
         io.to(user.room).emit('roomData', { room: user.room , users: getUsersInRoom(user.room) })
         io.emit('allRooms', { rooms: getRoomsWithUsers() })

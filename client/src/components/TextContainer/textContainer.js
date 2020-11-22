@@ -3,7 +3,7 @@ import React from 'react'
 import './TextContainer.css'
 import onlineIcon from './../../icons/onlineIcon.png'
 
-const TextContainer = ({ users, rooms }) => (
+const TextContainer = ({ users }) => (
     <div className="textContainer">
         <div className="headerText">
             <h1>RyanChat</h1>
@@ -30,25 +30,6 @@ const TextContainer = ({ users, rooms }) => (
         )
         : null
     }
-    {/* { 
-        rooms
-        ? (
-            <div>
-                <h1>Rooms with Active Users:</h1>
-                <div className="activeContainer">
-                    <h2>
-                        { rooms.map((room) => (
-                            <div key={ room }
-                            className="activeItem">
-                                { room }
-                            </div>
-                        ))}
-                    </h2>
-                    </div>
-            </div>
-        )
-        : null
-    } */}
     </div>
 )
 

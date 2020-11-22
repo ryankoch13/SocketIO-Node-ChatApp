@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import './ActiveRooms.css'
 
-const ActiveRooms = ({ name, rooms, setMessages }) => (
+const ActiveRooms = ({ name, rooms, setRoom }) => (
     <div className="textContainer">
     { 
         rooms
@@ -17,8 +17,8 @@ const ActiveRooms = ({ name, rooms, setMessages }) => (
                             className="activeItem">
                                 { room }
                                     <Link
-                                    onClick={ () => setMessages([]) }
                                     to={`./chat?name=${name}&room=${room}`}
+                                    onClick={() => setRoom()}
                                     >
                                     <button
                                     className="join-button" type="submit"
