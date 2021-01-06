@@ -19,7 +19,7 @@ const Chat = ({ location }) => {
     const [rooms, setRooms] = useState('')
     const [message, setMessage] = useState('')
     const [messages, setMessages] = useState([])
-    const ENDPOINT = 'localhost:5000'
+    const ENDPOINT = 'https://ryan-chat.herokuapp.com/'
 
     useEffect(() => {
         const { name, room } = queryString.parse(location.search)
@@ -82,6 +82,7 @@ const Chat = ({ location }) => {
             name={ name }
             rooms={ rooms }
             setRoom={ setRoom }
+            currentRoom={ room }
             >
 
             </ActiveRooms>

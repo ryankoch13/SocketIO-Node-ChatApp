@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import './ActiveRooms.css'
 
-const ActiveRooms = ({ name, rooms, setRoom }) => (
+const ActiveRooms = ({ name, rooms, setRoom, currentRoom }) => (
     <div className="textContainer">
     { 
         rooms
@@ -12,10 +12,11 @@ const ActiveRooms = ({ name, rooms, setRoom }) => (
                 <h1>Rooms with Active Users:</h1>
                 <div className="roomContainer">
                     <h2>
-                        { rooms.map((room) => (
+                        { rooms.map(room => (
                             <div key={ room }
                             className="activeItem">
                                 { room }
+                                { room !== currentRoom && 
                                     <Link
                                     to={`./chat?name=${name}&room=${room}`}
                                     onClick={() => setRoom()}
@@ -24,6 +25,7 @@ const ActiveRooms = ({ name, rooms, setRoom }) => (
                                     className="join-button" type="submit"
                                     >Join</button>
                                     </Link>
+                                    }
                             </div>
                             
                         ))}
