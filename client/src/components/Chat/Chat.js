@@ -19,7 +19,7 @@ const Chat = ({ location }) => {
     const [rooms, setRooms] = useState('')
     const [message, setMessage] = useState('')
     const [messages, setMessages] = useState([])
-    const ENDPOINT = 'https://ryan-chat.herokuapp.com/'
+    const ENDPOINT = 'ryanchat.netlify.app'
 
     useEffect(() => {
         const { name, room } = queryString.parse(location.search)
